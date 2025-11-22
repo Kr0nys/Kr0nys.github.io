@@ -6,18 +6,38 @@
   <title>О нас</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <nav>
-    <a href="index.html">Главная</a> |
-    <a href="about.html">О нас</a> |
-    <a href="services.html">Услуги</a> |
-    <a href="contact.html">Контакты</a>
-  </nav>
+<body id="body">
+  <header>
+    <nav id="mainNav">
+      <div class="nav-brand">MySite</div>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Главная</a></li>
+        <li><a href="about.html" class="nav-link active">О нас</a></li>
+        <li class="dropdown">
+          <a href="#" class="nav-link" id="servicesDropdown">Услуги ▼</a>
+          <ul class="dropdown-menu" id="servicesDropdownMenu">
+            <li><a href="services.html#web" class="dropdown-item">Веб-разработка</a></li>
+            <li><a href="services.html#test" class="dropdown-item">Тестирование</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html" class="nav-link">Контакты</a></li>
+      </ul>
+      <button id="themeToggle" class="btn-theme">🌓 Тема</button>
+    </nav>
+  </header>
 
   <main>
-    <h1>О нас</h1>
-    <p>Мы — небольшая команда энтузиастов, создающая качественные веб-решения с 2025 года.</p>
-    <p>Наша миссия — делать интернет проще, доступнее и удобнее для всех.</p>
+    <h1 id="about-title">О нас</h1>
+    <p>Мы создаём сайты и автоматизируем тестирование с любовью к качеству.</p>
+    <p id="team-count">В команде: <strong>3</strong> человека</p>
   </main>
+
+  <script>
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      document.body.classList.toggle('dark-theme');
+      document.getElementById('themeToggle').textContent = 
+        document.body.classList.contains('dark-theme') ? '☀️ Светлая' : '🌓 Тема';
+    });
+  </script>
 </body>
 </html>

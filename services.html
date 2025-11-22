@@ -6,22 +6,55 @@
   <title>Услуги</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <nav>
-    <a href="index.html">Главная</a> |
-    <a href="about.html">О нас</a> |
-    <a href="services.html">Услуги</a> |
-    <a href="contact.html">Контакты</a>
-  </nav>
+<body id="body">
+  <header>
+    <nav id="mainNav">
+      <div class="nav-brand">MySite</div>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Главная</a></li>
+        <li><a href="about.html" class="nav-link">О нас</a></li>
+        <li class="dropdown">
+          <a href="#" class="nav-link active" id="servicesDropdown">Услуги ▼</a>
+          <ul class="dropdown-menu" id="servicesDropdownMenu">
+            <li><a href="services.html#web" class="dropdown-item">Веб-разработка</a></li>
+            <li><a href="services.html#test" class="dropdown-item">Тестирование</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html" class="nav-link">Контакты</a></li>
+      </ul>
+      <button id="themeToggle" class="btn-theme">🌓 Тема</button>
+    </nav>
+  </header>
 
   <main>
-    <h1>Услуги</h1>
-    <ul>
-      <li>Разработка веб-сайтов</li>
-      <li>Тестирование программного обеспечения</li>
-      <li>Автоматизация процессов</li>
-      <li>Обучение основам HTML, CSS и Selenium</li>
-    </ul>
+    <h1 id="services-title">Наши услуги</h1>
+
+    <section id="web">
+      <h2>Веб-разработка</h2>
+      <p>Создание адаптивных и быстрых сайтов под ключ.</p>
+    </section>
+
+    <section id="test">
+      <h2>Тестирование ПО</h2>
+      <p>Ручное и автоматизированное тестирование на Selenium, Playwright и др.</p>
+    </section>
+
+    <button id="bookDemoBtn" class="btn">Забронировать демо</button>
+    <div id="demoModal" class="modal" style="display: none;">
+      <p>Демо-запрос отправлен! Менеджер свяжется с вами.</p>
+    </div>
   </main>
+
+  <script>
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      document.body.classList.toggle('dark-theme');
+      document.getElementById('themeToggle').textContent = 
+        document.body.classList.contains('dark-theme') ? '☀️ Светлая' : '🌓 Тема';
+    });
+
+    document.getElementById('bookDemoBtn').addEventListener('click', () => {
+      document.getElementById('demoModal').style.display = 'block';
+    });
+  </script>
 </body>
 </html>
